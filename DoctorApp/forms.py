@@ -6,7 +6,7 @@ class PatientForm(forms.ModelForm):
 
     name = forms.CharField(label="Name",widget=forms.TextInput(attrs={'placeholder': 'Name'}))
     description = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Description'}))
-    pdfs = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True,'placeholder':'PDFs'}))
+    pdfs = forms.FileField(widget=forms.ClearableFileInput(attrs={'placeholder':'PDFs'}))
     
     class Meta:
         model = PatientModel

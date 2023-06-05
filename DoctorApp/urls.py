@@ -26,6 +26,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     
     path('',views.PatientSubmissions,name="submissions"),
+    path('qrdownload/<id>',views.QRDownload,name='qr-download')
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
