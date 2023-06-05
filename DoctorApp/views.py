@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from .forms import *
 
-def PatientSubmission(request):
-
+def PatientSubmissions(request):
+    
     form = PatientForm()
 
     if request.method == 'POST':
@@ -11,19 +11,16 @@ def PatientSubmission(request):
         
         if form.is_valid():    
             form.save()
-            return render(request,'submission.html',context={'form':form})
+            return render(request,'submissions.html',context={'form':form})
         
         
         else:
             print(form.errors)
-            return render(request,'submission.html',context={'form':form,'errors':form.errors})
+            return render(request,'submissions.html',context={'form':form,'errors':form.errors})
         
 
     context = {
         'form' : form
     }
 
-    return render(request,'submission.html',context=context)
-
-def PatientSubmissions(request):
-    return render(request,'submissions.html')
+    return render(request,'submissions.html',context=context)
