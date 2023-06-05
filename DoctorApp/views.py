@@ -7,6 +7,8 @@ from pyqrcode import create
 import png
 import base64
 
+import os
+
 from qrcode import *
 
 def embed_QR(url_input, location_name):
@@ -52,6 +54,16 @@ def QRDownload(request,id):
     
     sub.qr = "Yes"
     sub.save()
+    
+    return redirect('/#services')
+
+def QRDelete(request,id):
+
+    sub = PatientModel.objects.get(id=id)
+    filename = sub.name
+    sub.delete()
+    
+    os.remove("static/QRs/"+filename+".png")
     
     return redirect('/#services')
 

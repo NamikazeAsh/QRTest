@@ -189,7 +189,12 @@
               </div>
               <h3>{{submission.name}}</h3>
               <br>
+              {% if submission.qr == "No" %}
               <a href="/qrdownload/{{submission.id}}" class="readmore stretched-link">Generate QR</a>
+              {% else %}
+              <a href="/qrdelete/{{submission.id}}" class="readmore stretched-link" style="color:red">Delete</a>
+              {% endif %}
+
             </div>
           </div><!-- End Service Item -->
 
