@@ -29,25 +29,23 @@ def PatientSubmissions(request):
         
         
         else:
-            print(form.errors)
             return render(request,'submissions.html',context={'form':form,'errors':form.errors})
-            # return redirect(reverse('submissions',kwargs={'form':form,'errors':form.errors}) + '#contact')
         
 
     patientsubs = PatientModel.objects.all()
-    print("Patient subs: ", patientsubs)
     context = {
         'form' : form,
         'patientsubs':patientsubs
     }
+
+        
 
     return render(request,'submissions.html',context=context)
 
 def QRDownload(request,id):
     
     sub = PatientModel.objects.get(id=id)
-    data = "Patient name: " + sub.name + "\n" + "Description: " + sub.description
-    print("Data: ",data)
+    data = "Patient name: " + sub.name + "\n" + "Description: " + sub.description + "\n" + "Document Link: " + sub.pdfs.url
     
     img=make(data)
     img.save("static/QRs/" + sub.name + ".png")
@@ -60,10 +58,12 @@ def QRDownload(request,id):
 def QRDelete(request,id):
 
     sub = PatientModel.objects.get(id=id)
+    qrfilepath = sub.pdfs
     filename = sub.name
     sub.delete()
     
     os.remove("static/QRs/"+filename+".png")
+    os.remove(str(qrfilepath))
     
     return redirect('/#services')
 

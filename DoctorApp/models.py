@@ -7,4 +7,4 @@ class PatientModel(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
     pdfs = models.FileField(null=True,upload_to="pdfs",validators=[FileExtensionValidator(['pdf',""])])
-    qr = models.CharField(max_length=100,default="No")
+    qr = models.CharField(max_length=100,default="No",null=True,blank=True)
