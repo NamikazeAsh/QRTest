@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.urls import reverse
 from .forms import *
 
 def PatientSubmissions(request):
@@ -17,6 +18,7 @@ def PatientSubmissions(request):
         else:
             print(form.errors)
             return render(request,'submissions.html',context={'form':form,'errors':form.errors})
+            # return redirect(reverse('submissions',kwargs={'form':form,'errors':form.errors}) + '#contact')
         
 
     context = {

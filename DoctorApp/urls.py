@@ -25,7 +25,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     
-    path('',views.PatientSubmissions),
+    path('',views.PatientSubmissions,name="submissions"),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
