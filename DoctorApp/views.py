@@ -50,5 +50,8 @@ def QRDownload(request,id):
     img=make(data)
     img.save("static/QRs/" + sub.name + ".png")
     
+    sub.qr = "Yes"
+    sub.save()
+    
     return redirect('/#services')
 
