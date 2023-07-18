@@ -56,24 +56,28 @@
   <header id="header" class="header d-flex align-items-center">
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a class="logo d-flex align-items-center">
-        <h1>CarerAI<span>.</span></h1>
+      <a href="{% url 'submissions' %}" class="logo d-flex align-items-center">
+        <img src="{% static 'submissions/img/logo.png' %}" alt="" >
+        <!-- <h1>CarerAI<span>.</span></h1> -->
       </a>
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Contact Us</a></li>
-          <li class="dropdown"><a href="#"><span>Services</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a href="#about">Orthopedic</a></li>
+          <li><a href="#services">Piles</a></li>
+          <li><a href="#services">Fissures</a></li>
+          <li><a href="#services">Cataract</a></li>
+
+          <!-- <li class="dropdown"><a href="#"><span>Services</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="#">Orthopedic</a></li>
               <li><a href="#">Piles</a></li>
               <li><a href="#">Fissures</a></li>
               <li><a href="#">Cataract</a></li>
             </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
+          </li> -->
+
         </ul>
       </nav>
 
@@ -106,28 +110,28 @@
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-capsule"></i></div>
-              <h4 class="title"><a class="stretched-link">Orthopedic</a></h4>
+              <h4 class="title"><a class="stretched-link">Receive second opinions</a></h4>
             </div>
           </div><!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-capsule"></i></div>
-              <h4 class="title"><a  class="stretched-link">Piles</a></h4>
+              <div class="icon"><i class="bi bi-clipboard2-pulse-fill"></i></div>
+              <h4 class="title"><a  class="stretched-link">Specialized doctors</a></h4>
             </div>
           </div><!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-capsule"></i></div>
-              <h4 class="title"><a class="stretched-link">Fissures</a></h4>
+              <div class="icon"><i class="bi bi-prescription"></i></div>
+              <h4 class="title"><a class="stretched-link">Alternative options to surgery</a></h4>
             </div>
           </div><!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-capsule"></i></div>
-              <h4 class="title"><a class="stretched-link">Cataract</a></h4>
+              <div class="icon"><i class="bi bi-robot"></i></div>
+              <h4 class="title"><a class="stretched-link">AI detection</a></h4>
             </div>
           </div><!--End Icon Box -->
 
