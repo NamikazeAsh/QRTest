@@ -69,3 +69,12 @@ def QRDelete(request,id):
 
 def OrthopedicView(request):
     return render(request,"orthopedic.html")
+
+def PilesView(request):
+    return render(request,"piles.html")
+
+def FissuresView(request):
+    return render(request,'fissures.html')
+
+def CataractView(request):
+    return render(request,'cataract.html')
