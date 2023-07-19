@@ -27,7 +27,8 @@ urlpatterns = [
     
     path('',views.PatientSubmissions,name="submissions"),
     path('qrdownload/<id>',views.QRDownload,name='qr-download'),
-    path('qrdelete/<id>',views.QRDelete,name='qr-delete')
+    path('qrdelete/<id>',views.QRDelete,name='qr-delete'),
+    path('orthopedic',views.OrthopedicView,name='orthopedic'),
     
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

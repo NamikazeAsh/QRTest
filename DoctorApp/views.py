@@ -67,3 +67,5 @@ def QRDelete(request,id):
     
     return redirect('/#services')
 
+def OrthopedicView(request):
+    return render(request,"orthopedic.html")
