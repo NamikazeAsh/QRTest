@@ -37,6 +37,21 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+  <!-- Icons font CSS-->
+  <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+  <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+  <!-- Font special for pages-->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Vendor CSS-->
+  <link href="{% static 'ddetails/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+  <link href="{% static 'ddetails/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+  <!-- Main CSS-->
+  <link href="{% static 'ddetails/css/style.css' %}" rel="stylesheet" media="all">
+  <link rel="stylesheet" type="text/css" href="{% static 'ddetails/css/montserrat-font.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+
   <!-- =======================================================
   * Template Name: Impact
   * Updated: May 30 2023 with Bootstrap v5.3.0
@@ -113,62 +128,121 @@
 
     <!-- ======= Our Team Section ======= -->
     <section id="team" class="team">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Orthopedic Doctors</h2>
-          <p>Doctors with orthopedic specialization.</p>
+      
+      <div class="page-content">
+        <div class="form-v10-content">
+          <form class="form-detail" action="#" method="post" id="myform">
+            <div class="form-left">
+              <h2>General Infomation</h2>
+              <div class="form-row">
+                <select name="title">
+                    <option class="option" value="title">Title</option>
+                    <option class="option" value="businessman">Businessman</option>
+                    <option class="option" value="reporter">Reporter</option>
+                    <option class="option" value="secretary">Secretary</option>
+                </select>
+                <span class="select-btn">
+                    <i class="zmdi zmdi-chevron-down"></i>
+                </span>
+              </div>
+              <div class="form-group">
+                <div class="form-row form-row-1">
+                  <input type="text" name="first_name" id="first_name" class="input-text" placeholder="First Name" required>
+                </div>
+                <div class="form-row form-row-2">
+                  <input type="text" name="last_name" id="last_name" class="input-text" placeholder="Last Name" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <select name="position">
+                    <option value="position">Position</option>
+                    <option value="director">Director</option>
+                    <option value="manager">Manager</option>
+                    <option value="employee">Employee</option>
+                </select>
+                <span class="select-btn">
+                    <i class="zmdi zmdi-chevron-down"></i>
+                </span>
+              </div>
+              <div class="form-row">
+                <input type="text" name="company" class="company" id="company" placeholder="Company" required>
+              </div>
+              <div class="form-group">
+                <div class="form-row form-row-3">
+                  <input type="text" name="business" class="business" id="business" placeholder="Business Arena" required>
+                </div>
+                <div class="form-row form-row-4">
+                  <select name="employees">
+                      <option value="employees">Employees</option>
+                      <option value="trainee">Trainee</option>
+                      <option value="colleague">Colleague</option>
+                      <option value="associate">Associate</option>
+                  </select>
+                  <span class="select-btn">
+                      <i class="zmdi zmdi-chevron-down"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-right">
+              <h2>Contact Details</h2>
+              <div class="form-row">
+                <input type="text" name="street" class="street" id="street" placeholder="Street + Nr" required>
+              </div>
+              <div class="form-row">
+                <input type="text" name="additional" class="additional" id="additional" placeholder="Additional Information" required>
+              </div>
+              <div class="form-group">
+                <div class="form-row form-row-1">
+                  <input type="text" name="zip" class="zip" id="zip" placeholder="Zip Code" required>
+                </div>
+                <div class="form-row form-row-2">
+                  <select name="place">
+                      <option value="place">Place</option>
+                      <option value="Street">Street</option>
+                      <option value="District">District</option>
+                      <option value="City">City</option>
+                  </select>
+                  <span class="select-btn">
+                      <i class="zmdi zmdi-chevron-down"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="form-row">
+                <select name="country">
+                    <option value="country">Country</option>
+                    <option value="Vietnam">Vietnam</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="India">India</option>
+                </select>
+                <span class="select-btn">
+                    <i class="zmdi zmdi-chevron-down"></i>
+                </span>
+              </div>
+              <div class="form-group">
+                <div class="form-row form-row-1">
+                  <input type="text" name="code" class="code" id="code" placeholder="Code +" required>
+                </div>
+                <div class="form-row form-row-2">
+                  <input type="text" name="phone" class="phone" id="phone" placeholder="Phone Number" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Your Email">
+              </div>
+              <div class="form-checkbox">
+                <label class="container"><p>I do accept the <a href="#" class="text">Terms and Conditions</a> of your site.</p>
+                    <input type="checkbox" name="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="form-row-last">
+                <input type="submit" name="register" class="register" value="Register Badge">
+              </div>
+            </div>
+          </form>
         </div>
 
-        <div class="row gy-4">
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <img src="{% static 'submissions/img/team/team-1.jpg' %}" class="img-fluid" alt="">
-              <h4>Walter White</h4>
-              <span>Degree</span>
-              <div class="social">
-                <a href="{% url 'doctor-details' %}"><i class="bi bi-journal-medical"></i></a>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <img src="{%static 'submissions/img/team/team-2.jpg' %}" class="img-fluid" alt="">
-              <h4>Sarah Jhinson</h4>
-              <span>Degree</span>
-              <div class="social">
-                <a href=""><i class="bi bi-journal-medical"></i></a>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <img src="{% static 'submissions/img/team/team-3.jpg' %}" class="img-fluid" alt="">
-              <h4>William Anderson</h4>
-              <span>Degree</span>
-              <div class="social">
-                <a href=""><i class="bi bi-journal-medical"></i></a>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="member">
-              <img src="{% static 'submissions/img/team/team-4.jpg' %}" class="img-fluid" alt="">
-              <h4>Amanda Jepson</h4>
-              <span>Degree</span>
-              <div class="social">
-                <a href=""><i class="bi bi-journal-medical"></i></a>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-        </div>
-
-      </div>
     </section><!-- End Our Team Section -->
 
   </main><!-- End #main -->
@@ -247,6 +321,16 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'submissions/js/main.js' %}"></script>
+
+  <!-- Jquery JS-->
+  <script src="{% static 'ddetails/vendor/jquery/jquery.min.js' %}"></script>
+  <!-- Vendor JS-->
+  <script src="{% static 'ddetails/vendor/select2/select2.min.js' %}"></script>
+  <script src="{% static 'ddetails/vendor/datepicker/moment.min.js' %}"></script>
+  <script src="{% static 'ddetails/vendor/datepicker/daterangepicker.js' %}"></script>
+
+  <!-- Main JS-->
+  <script src="{% static 'js/global.js' %}"></script>
 
 </body>
 

@@ -78,3 +78,6 @@ def FissuresView(request):
 
 def CataractView(request):
     return render(request,'cataract.html')
+
+def DoctorDetails(request):
+    return render(request,'doctorDetails.html')
