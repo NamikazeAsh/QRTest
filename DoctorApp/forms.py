@@ -22,8 +22,21 @@ class PatientForm(forms.ModelForm):
 
 class DoctorUploadForm(forms.ModelForm):
 
-    doctor = forms.ModelChoiceField(queryset=DoctorModel.objects.all())
-    patient_name = forms.CharField(max_length=100)
-    description = forms.CharField(max_length=500)
-    contact = forms.CharField(max_length=100)
+    doctor = forms.ModelChoiceField(queryset=DoctorModel.objects.all(),widget=forms.TextInput(attrs={'placeholder':'Doctor Name'}))
+    patient_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'placeholder':'Patient Name'}))
+    description = forms.CharField(max_length=500,widget=forms.TextInput(attrs={'placeholder':'Disease Description'}))
+    contact = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'placeholder':'Email or Phone Number'}))
     pdfs = forms.FileField(widget=forms.ClearableFileInput(attrs={'placeholder':'PDFs'}))
+    
+    class Meta:
+        model = DoctorUpload
+        fields = ('doctor','patient_name','description','contact','pdfs')
+        
+    def __init__(self, *args, **kwargs):
+        super(DoctorUploadForm, self).__init__(*args, **kwargs)
+        self.fields['patient_name'].widget.attrs['class'] = 'street'
+        self.fields['description'].widget.attrs['class'] = 'street'
+        self.fields['contact'].widget.attrs['class'] = 'street'
+        self.fields['pdfs'].widget.attrs['class'] = 'street'
+        
+        self.fields['doctor'].required  = False

@@ -113,8 +113,29 @@ def CataractView(request):
 def DoctorDetails(request,id):
     
     doc = DoctorModel.objects.get(id = id)
+    
+    form = DoctorUploadForm()
+    
+    if request.method == 'POST':
+        
+        form = DoctorUploadForm(request.POST,request.FILES)
+        
+        if form.is_valid():    
+            formd = form.save(commit=False)
+            print(formd)
+            formd.doctor = doc
+            formd.save()
+        
+        
+        else:
+            print("ERRORs\n",form.errors)
+            print(doc.name)
+            return render(request,'doctorDetails.html',context={'form':form,'errors':form.errors,"doc" : doc})
+    
     context = {
+        'form' : form,
         "doc" : doc
     }
+    
     
     return render(request,'doctorDetails.html',context=context)

@@ -132,7 +132,11 @@
       
       <div class="page-content">
         <div class="form-v10-content">
-          <form class="form-detail" action="#" method="post" id="myform">
+
+          <form class="form-detail" action="" method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
             <div class="form-left">
 
               <h2>Doctor Details</h2>
@@ -166,20 +170,36 @@
 
               <h2>Upload</h2>
 
+              {% if errors %}
+
+              <div class="alert alert-danger" role="alert">
+
+                {% for a in errors %}
+                  {% if a == 'pdfs' %}
+                  -Issue with pdfs<br>
+                  {% elif a == 'doctor' %}
+                  -Issue with doctor Name<br>
+                  {% endif %}
+                {% endfor %}
+
+              </div>
+
+              {% endif %}
+
               <div class="form-row">
-                <input type="text" name="street" class="street" id="street" placeholder="Patient name" required>
+                {{form.patient_name}}
               </div>
 
               <div class="form-row">
-                <input type="text" name="street" class="street" id="street" placeholder="Disease description" required>
+                {{form.description}}
               </div>
 
               <div class="form-row">
-                <input type="text" name="street" class="street" id="street" placeholder="Email/Phone Number" required>
+                {{form.contact}}
               </div>
 
               <div class="form-row">
-                <input type="file" name="files" class="street">
+                {{form.pdfs}}
               </div>
 
               <div class="form-row-last">
