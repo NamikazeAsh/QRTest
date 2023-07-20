@@ -30,3 +30,11 @@ class DoctorModel(models.Model):
     
     def __str__(self):
         return f"{self.name} | {self.specialization}"
+    
+class DoctorUpload(models.Model):
+
+    doctor = models.ForeignKey(DoctorModel,on_delete=models.CASCADE)
+    patient_name = models.CharField(max_length=100)
+    description = models.CharField(max_length=500)
+    contact = models.CharField(max_length=100)
+    pdfs = models.FileField(null=True,upload_to="pdfs",validators=[FileExtensionValidator(['pdf',""])])
