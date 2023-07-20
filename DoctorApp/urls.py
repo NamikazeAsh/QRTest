@@ -32,7 +32,7 @@ urlpatterns = [
     path('cataract',views.CataractView,name='cataract'),
     path('fissures',views.FissuresView,name='fissures'),
     path('piles',views.PilesView,name='piles'),
-    path('doctorDetails',views.DoctorDetails,name='doctor-details')
+    path('doctorDetails/<int:id>',views.DoctorDetails,name='doctor-details')
     
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

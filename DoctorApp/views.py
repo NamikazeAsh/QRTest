@@ -68,16 +68,53 @@ def QRDelete(request,id):
     return redirect('/#services')
 
 def OrthopedicView(request):
-    return render(request,"orthopedic.html")
+    
+    docs = DoctorModel.objects.filter(specialization = 'Orthopedic')
+    
+    context = {
+        'docs' : docs
+    }
+
+    return render(request,"orthopedic.html",context=context)
 
 def PilesView(request):
-    return render(request,"piles.html")
+    
+    docs = DoctorModel.objects.filter(specialization = 'Piles')
+    
+    context = {
+        'docs' : docs
+    }
+
+    
+    return render(request,"piles.html",context=context)
 
 def FissuresView(request):
-    return render(request,'fissures.html')
+    
+    docs = DoctorModel.objects.filter(specialization = 'Fissures')
+
+    context = {
+        'docs' : docs
+    }
+
+    
+    return render(request,'fissures.html',context=context)
 
 def CataractView(request):
-    return render(request,'cataract.html')
+    
+    docs = DoctorModel.objects.filter(specialization = 'Cataract')
+    
+    context = {
+        'docs' : docs
+    }
 
-def DoctorDetails(request):
-    return render(request,'doctorDetails.html')
+    
+    return render(request,'cataract.html',context=context)
+
+def DoctorDetails(request,id):
+    
+    doc = DoctorModel.objects.get(id = id)
+    context = {
+        "doc" : doc
+    }
+    
+    return render(request,'doctorDetails.html',context=context)

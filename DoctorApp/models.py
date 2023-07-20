@@ -27,3 +27,6 @@ class DoctorModel(models.Model):
     address = models.CharField(max_length=100)
     avail_timing = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return f"{self.name} | {self.specialization}"
