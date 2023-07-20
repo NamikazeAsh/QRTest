@@ -1,6 +1,13 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
 
+choices = (
+    ('Orthopedic','Orthopedic'),
+    ('Piles','Piles'),
+    ('Fissures','Fissures'),
+    ('Cataract','Cataract')
+)
+
 # Create your models here.
 class PatientModel(models.Model):
     
@@ -13,6 +20,7 @@ class PatientModel(models.Model):
 class DoctorModel(models.Model):
 
     name = models.CharField(max_length=100)
+    specialization = models.CharField(max_length=100,choices=choices,default="-")
     clinic = models.CharField(max_length=100)
     qualification = models.CharField(max_length=500)
     experience = models.IntegerField()
